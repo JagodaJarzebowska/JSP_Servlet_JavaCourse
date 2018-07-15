@@ -7,13 +7,11 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtils {
 
     private final static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    private static Session session = sessionFactory.openSession();
+    private static Session session = null;
 
-    public static synchronized Session openSession(){
+    public static  Session openSession(){
         if(session == null){
-            synchronized (HibernateUtils.class){
-                if(session == null) session = (Session) new HibernateUtils();
-            }
+             session = sessionFactory.openSession();
         }
         return session;
     }
