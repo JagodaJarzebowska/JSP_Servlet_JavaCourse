@@ -6,6 +6,7 @@
 <%@ page import="com.sda.twitter.utils.Utils" %>
 <%@ page import="java.util.Optional" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@page pageEncoding="UTF-8" contentType="text/html;" %>
 <html>
 <head>
@@ -23,6 +24,7 @@
     Optional<User> userFromCookies = Utils.getUserFromCookies(request);
     request.setAttribute("userLogged",userFromCookies);
 %>
+<jsp:useBean id="dateValue" class="java.util.Date"/>
 
 <body>
 
@@ -49,14 +51,16 @@
         </c:forEach>
     </ul>
 
-    <h2>Message: </h2>
+    <h2>User Message: </h2>
 
     <ul>
         <c:forEach var="message" items="${twittList}">
             <li>
-                Date: <c:out value="${message.date}"/>,
-                Message: <c:out value="${message.message}"/>,
-                User: <c:out value="${message.user.nick}"/>,
+                <c:set target="${dateValue}" property="time" value="${message.date}"/>
+                User: <c:out value="${message.user.nick}"/></br>
+                Date: <fmt:formatDate value="${dateValue}" pattern="MM/dd/yyyy HH:mm"/>,
+                <%--Date: <c:out value="${message.date}"/>,--%>
+                Message: <c:out value="${message.message}"/>
             </li>
         </c:forEach>
     </ul>

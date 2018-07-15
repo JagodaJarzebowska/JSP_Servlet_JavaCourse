@@ -1,8 +1,6 @@
 package com.sda.twitter.servlets;
 
-import com.sda.twitter.repository.UserDb;
 import com.sda.twitter.utils.Utils;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
