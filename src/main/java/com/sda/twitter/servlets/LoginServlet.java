@@ -29,6 +29,6 @@ public class LoginServlet extends HttpServlet {
                 .findFirst()
                 .ifPresent(user -> resp.addCookie(new Cookie(Utils.USER_COOOKIE_NAME, user.getNick())));
 
-        req.getRequestDispatcher("/message.jsp").forward(req, resp);
+        resp.sendRedirect("/");
     }
 }

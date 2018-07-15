@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
 
         UserDb userDb = UserDb.getInstance();
         userDb.getUserList().add(user);
-        resp.sendRedirect("/");
+        resp.sendRedirect("/login.jsp");
 
     }
 }

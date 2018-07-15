@@ -28,7 +28,7 @@
 
 <div style="text-align: right; width: 100%">
     <c:if test="${userLogged.present}">
-    <a href="message.jsp">Send Message</a>
+    <a href="message.jsp">Send Message</a> /<a href="logout"> Logout</a>
     </c:if>
     <c:if test="${!userLogged.present}">
         <a href="login.jsp">Login</a> / <a href="register.jsp">Register</a>
