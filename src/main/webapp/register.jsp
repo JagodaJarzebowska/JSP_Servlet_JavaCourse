@@ -15,7 +15,7 @@
         <label>Your nick:</label><input type="text" name="nick"/></br>
         <label>Email:</label><input type="email" name="email"/></br>
         <label>Password:</label><input type="password" name="pass"/></br>
-        <input type="submit" value="Login"/></br>
+        <input type="submit" value="Register"/></br>
 
     </form>
 </body>
