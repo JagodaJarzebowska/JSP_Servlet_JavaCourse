@@ -8,9 +8,9 @@ public class Test {
     public static void main(String[] args) {
         HibernateUtils.openSession();
         User user = new User();
-        user.setNick("nicka");
-        user.setPassword("123a");
-        user.setEmail("ja@jaa.pl");
+        user.setNick("nicasfafka");
+        user.setPassword("asda123a");
+        user.setEmail("jaasda@jaa.pl");
 
         UserDAO userDAO = new UserDAO();
         userDAO.save(user);

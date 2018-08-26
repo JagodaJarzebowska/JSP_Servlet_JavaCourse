@@ -1,7 +1,9 @@
 package com.sda.twitter.servlets;
 
+import com.sda.twitter.dao.UserDAO;
 import com.sda.twitter.model.User;
 import com.sda.twitter.repository.UserDb;
+import com.sda.twitter.utils.HibernateUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +29,12 @@ public class RegisterServlet extends HttpServlet {
 
         UserDb userDb = UserDb.getInstance();
         userDb.getUserList().add(user);
+
+        HibernateUtils.openSession();
+        UserDAO userDAO = new UserDAO();
+        userDAO.save(user);
+        HibernateUtils.closeSession(); // zapis w bazie danych
+
         resp.sendRedirect("/login.jsp");
 
     }
